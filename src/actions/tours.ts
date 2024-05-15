@@ -1,7 +1,7 @@
 "use server";
 
-import { prismaClient } from "@/lib/db";
 import { Tour } from "@prisma/client";
+import { prismaClient } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 
 export async function createTour(data: Tour) {

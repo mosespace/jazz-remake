@@ -1,8 +1,8 @@
 "use server";
 
 import { prismaClient } from "@/lib/db";
-import { CategoryFormProps } from "@/types/types";
 import { revalidatePath } from "next/cache";
+import { CategoryFormProps } from "@/types/types";
 
 export async function createCategory(data: CategoryFormProps) {
   try {

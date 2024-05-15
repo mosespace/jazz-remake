@@ -1,6 +1,8 @@
 "use server";
 
 import { prismaClient } from "@/lib/db";
+
+
 export async function getUserById(id: string) {
   try {
     const user = await prismaClient.user.findUnique({

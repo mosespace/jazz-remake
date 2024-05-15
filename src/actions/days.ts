@@ -1,7 +1,7 @@
 "use server";
 
-import { prismaClient } from "@/lib/db";
 import { Day } from "@prisma/client";
+import { prismaClient } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 
 export async function createDay(data: Day) {
@@ -28,9 +28,6 @@ export async function createDay(data: Day) {
 export async function getDays() {
   try {
     const days = await prismaClient.day.findMany({
-      // orderBy: {
-      //   createdAt: "desc",
-      // },
     });
     return days;
   } catch (error) {

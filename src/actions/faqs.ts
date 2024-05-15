@@ -1,15 +1,10 @@
 "use server";
 
-import { prismaClient } from "@/lib/db";
 import { Faq } from "@prisma/client";
+import { prismaClient } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 
 export async function createFAQ(data: Faq) {
-  // title: string;
-  //   description: string;
-  //   accommodation: string[] | null;
-  //   meals: string[];
-  //   tourId: string;
   try {
     const newFaq = await prismaClient.faq.create({
       data,

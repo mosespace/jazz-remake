@@ -1,9 +1,7 @@
 "use server";
 
 import { prismaClient } from "@/lib/db";
-import { AttractionFormProps } from "@/types/types";
 import { revalidatePath } from "next/cache";
-import { title } from "process";
 
 export async function createAttraction(data: any) {
   try {
@@ -15,7 +13,7 @@ export async function createAttraction(data: any) {
     if (existingAttraction) {
       return {
         data: null,
-        error: `Attraction with this title ( ${title})  already exists in the Database`,
+        error: `Attraction with this title already exists in the Database`,
         status: 409,
       };
     }
@@ -24,7 +22,6 @@ export async function createAttraction(data: any) {
     });
     // console.log(newAttraction);
     revalidatePath("/dashboard/attractions");
-    revalidatePath("/");
     return {
       data: newAttraction,
       error: null,
