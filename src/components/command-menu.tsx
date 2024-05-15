@@ -154,7 +154,7 @@ export default function CommandMenu({
           {/* Side Bar */}
           {docsConfig.sidebarNav.map((group) => (
             <CommandGroup key={group.title} heading={group.title}>
-              {group.items.map((navItem) => (
+              {group.items.map((navItem: any) => (
                 <Link
                   key={navItem.href}
                   href={`${navItem.href as string}`}
