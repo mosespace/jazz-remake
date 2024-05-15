@@ -30,6 +30,5 @@ export default async function page() {
         <CategoriesList categories={categories} />
       </div> */}
     </div>
-    // <div className='hello-world'>Hello World</div>
   );
 }
