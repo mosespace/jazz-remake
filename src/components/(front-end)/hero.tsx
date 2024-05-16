@@ -1,8 +1,8 @@
 import React from "react";
-// import { getTours } from "@/actions/tours";
+import { getTours } from "@/actions/tours";
 import { Announcement } from "./announcement";
-// import { getCategories } from "@/actions/categories";
-// import { CommandMenuHero } from "./command-menu-hero";
+import { getCategories } from "@/actions/categories";
+import { CommandMenuHero } from "./command-menu-hero";
 import {
   PageActions,
   PageHeader,
@@ -11,8 +11,8 @@ import {
 } from "./page-header";
 
 export default async function Hero() {
-  // const tourData = await getTours();
-  // const categoriesData = await getCategories();
+  const tourData = (await getTours()) ?? [];
+  const categoriesData = (await getCategories()) ?? [];
 
   return (
     <div className='relative container max-w-full items-center justify-center flex hero-bg-dark min-h-screen'>
@@ -31,10 +31,10 @@ export default async function Hero() {
           to cultural treasures, our tours promise unforgettable experiences.
         </PageHeaderDescription>
         <PageActions>
-          {/* <CommandMenuHero
+          <CommandMenuHero
             tourData={tourData}
             categoriesData={categoriesData}
-          /> */}
+          />
         </PageActions>
       </PageHeader>
     </div>
