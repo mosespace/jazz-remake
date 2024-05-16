@@ -1,8 +1,8 @@
 "use server";
 
 import { prismaClient } from "@/lib/db";
-import { revalidatePath } from "next/cache";
 import { CategoryFormProps } from "@/types/types";
+import { revalidatePath } from "next/cache";
 
 export async function createCategory(data: CategoryFormProps) {
   try {
@@ -48,6 +48,8 @@ export async function getCategories() {
     console.log(error);
   }
 }
+
+
 export async function getCategoryBySlug(slug: string) {
   try {
     const category = await prismaClient.category.findUnique({
@@ -63,6 +65,7 @@ export async function getCategoryBySlug(slug: string) {
     console.log(error);
   }
 }
+
 export async function deleteCategoryById(id: string | undefined) {
   try {
     if (id) {

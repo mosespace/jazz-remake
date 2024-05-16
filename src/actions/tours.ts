@@ -1,7 +1,7 @@
 "use server";
 
-import { Tour } from "@prisma/client";
 import { prismaClient } from "@/lib/db";
+import { Tour } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
 export async function createTour(data: Tour) {
@@ -43,7 +43,6 @@ export async function getTours() {
         days: true,
       },
     });
-    revalidatePath("/dashboard/tours");
     return tours;
   } catch (error) {
     console.log(error);
@@ -143,6 +142,7 @@ export async function updateTour(id: string, data: any) {
         },
       });
       // console.log(`Updated tour; ${updatedTour}`);
+      revalidatePath("/dashboard/tours");
       return updatedTour;
     }
   } catch (error) {

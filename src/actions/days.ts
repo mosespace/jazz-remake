@@ -1,7 +1,7 @@
 "use server";
 
-import { Day } from "@prisma/client";
 import { prismaClient } from "@/lib/db";
+import { Day } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
 export async function createDay(data: Day) {
@@ -25,15 +25,16 @@ export async function createDay(data: Day) {
     };
   }
 }
+
 export async function getDays() {
   try {
-    const days = await prismaClient.day.findMany({
-    });
+    const days = await prismaClient.day.findMany();
     return days;
   } catch (error) {
     console.log(error);
   }
 }
+
 export async function getDaysByTour(tourId: string) {
   try {
     if (tourId) {
@@ -51,6 +52,7 @@ export async function getDaysByTour(tourId: string) {
     console.log(error);
   }
 }
+
 export async function getDaysById(id: string) {
   try {
     if (id) {

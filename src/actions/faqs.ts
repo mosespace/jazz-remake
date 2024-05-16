@@ -1,7 +1,7 @@
 "use server";
 
-import { Faq } from "@prisma/client";
 import { prismaClient } from "@/lib/db";
+import { Faq } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
 export async function createFAQ(data: Faq) {
@@ -25,6 +25,7 @@ export async function createFAQ(data: Faq) {
     };
   }
 }
+
 export async function getFaqs() {
   try {
     const FAQS = await prismaClient.faq.findMany({
@@ -37,6 +38,7 @@ export async function getFaqs() {
     console.log(error);
   }
 }
+
 export async function getFAQsByTour(tourId: string) {
   try {
     if (tourId) {

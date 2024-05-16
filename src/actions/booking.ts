@@ -30,7 +30,6 @@ export async function createBooking(data: Book) {
     };
   } catch (error) {
     console.log(error);
-    // You might want to handle the error here, e.g., return an error response
   }
 }
 
@@ -77,6 +76,7 @@ export async function deleteBooks() {
   try {
     const deleteUsers = prismaClient.book.deleteMany({});
     console.log(`All the following have been deleted: ${deleteUsers}`);
+    revalidatePath("/dashboard/bookings");
     return deleteUsers;
   } catch (error) {
     console.log(error);

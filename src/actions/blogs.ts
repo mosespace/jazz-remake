@@ -71,6 +71,7 @@ export async function deleteBlogs() {
   try {
     const deletedBlogs = prismaClient.blog.deleteMany({});
     console.log(`All the following have been deleted: ${deletedBlogs}`);
+    revalidatePath("/dashboard/blogs");
     return deletedBlogs;
   } catch (error) {
     console.log(error);
@@ -109,6 +110,7 @@ export async function getBlogById(blogId: string) {
     console.log(error);
   }
 }
+
 export async function getBlogBySlug(slug: string) {
   try {
     if (slug) {

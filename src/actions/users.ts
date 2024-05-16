@@ -2,7 +2,6 @@
 
 import { prismaClient } from "@/lib/db";
 
-
 export async function getUserById(id: string) {
   try {
     const user = await prismaClient.user.findUnique({
@@ -15,6 +14,7 @@ export async function getUserById(id: string) {
     console.log(error);
   }
 }
+
 export async function getUsers() {
   try {
     const users = await prismaClient.user.findMany({

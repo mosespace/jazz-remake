@@ -13,7 +13,7 @@ export async function createAttraction(data: any) {
     if (existingAttraction) {
       return {
         data: null,
-        error: `Attraction with this title already exists in the Database`,
+        error: `Attraction with this title  already exists in the Database`,
         status: 409,
       };
     }
