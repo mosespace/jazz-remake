@@ -12,8 +12,8 @@ export default async function Layout({
   children: React.ReactNode;
 }) {
   const session = await getServerSession(authOptions);
-  const tourData = await getTours();
-  const categoriesData = await getCategories();
+  const tourData = (await getTours()) ?? [];
+  const categoriesData = (await getCategories()) ?? [];
 
   return (
     <div>
