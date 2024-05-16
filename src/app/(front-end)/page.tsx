@@ -1,15 +1,4 @@
 import Hero from "@/components/(front-end)/hero";
-// import { getBlogs } from "@/actions/blogs";
-// import { getTours } from "@/actions/tours";
-// import OurTeam from "@/components/our-team";
-// import { Attraction } from "@prisma/client";
-// import Blogs from "@/components/Blogs/blogs";
-// import Testimonials from "@/components/testimonials";
-// import ToursList from "@/components/Tours/ToursList";
-// import { getDestinations } from "@/actions/destinations";
-// import RecentlyViewed from "@/components/recently-viewed";
-// import Destinations from "@/components/Destinations/Destinations";
-// import AttractionLinks from "@/components/Attractions/attraction-links";
 import { getCategories } from "@/actions/categories";
 import { getAttractions } from "@/actions/attractions";
 import CategoriesList from "@/components/(front-end)/categories/categories";
